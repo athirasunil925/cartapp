@@ -1,0 +1,24 @@
+
+{% load static %}
+{% block metadescription %}
+    {{Product.desc |truncatewords:150}}
+
+{% endblock %}
+
+{% block title %}
+    {{Product.name}}-->Foodcart
+
+{% endblock %}
+
+{% block content %}
+<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+    <div>
+
+        <h3>{{Product.name}}</h3>
+        <img src="{{product.image.url}}"><br>
+        <p class="card-text">${{Product.price}}</p>
+        <p class="card-body"> {{Product.desc}}</p>
+    </div>
+
+</div>
+{% endblock %}

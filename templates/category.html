@@ -1,0 +1,38 @@
+
+{% load static %}
+
+{%block content %}
+<div class="mx-auto">
+    {% if category %}
+    <center> <p><img class="my_image" src="{{category.image.url}}" alt="{{category.name}}" style="width:1450px; height:500px;"></p></center>
+</div><br>
+<div class="mx-auto">
+    <h1>{{category.name}}</h1>
+    <p>{{category.desc}}</p>
+</div>
+
+{% else %}>
+
+{% endif %}
+<div class="container">
+    <div class="row max-auto">
+
+        {% for Product in products.object_list %}
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-lg-4">
+             <div class="card" style="width: 18rem;">
+                <a href="{{Product.get_url}}"><img class="card-img-top" src="{{Product.image.url}}" alt="Product.name" style="width:300px; height:300px;"></a>
+                <div class="card-body">
+                    <h4 class="card-title">{{Product.name}}</h4>
+                    <p class="card-text"> ${{Product.price}}</p>
+                </div>
+            </div>
+        </div>
+     {% endfor %}
+
+
+    </div>
+
+
+</div>
+{% endblock %}
+
